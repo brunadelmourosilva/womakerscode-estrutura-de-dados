@@ -37,6 +37,18 @@ public class Vetor {
         return this.elementos[posicao];
     }
 
+    //verifica se o elemento existe no vetor
+    //busca sequencial
+    public int buscaElemento(String elemento){
+        for (int i = 0; i < this.tamanho; i++) {
+            if(this.elementos[i].equals(elemento)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
 
     public int tamanhoVetor(){
         return this.tamanho;
