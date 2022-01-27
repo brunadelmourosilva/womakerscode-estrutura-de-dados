@@ -30,6 +30,31 @@ public class Vetor {
         return false;
     }
 
+    //A, B, C, D = tamanho 4
+    //0, 1, 2, 3 + +
+
+    //A, B, x, C, D = tamanho 5
+    //0, 1, 2, 3, 4 + +
+
+    //overload
+    public boolean adicionaElemento(int posicao, String elemento){
+        if (!(posicao >= 0 && posicao < tamanho)){
+            throw new IllegalArgumentException("Posição inválida!"); //argumentos inválidos
+        }
+
+        //mover todos os elementos
+        //de trás para frente
+        for (int i=this.tamanho-1; i>=posicao; i--){ // 3 até 2
+            this.elementos[i+1] = this.elementos[i]; //this.elementos[4] = D
+        }
+
+        //atribui o novo elemento na posição desejada
+        this.elementos[posicao] = elemento;
+        this.tamanho++;
+        
+        return false;
+    }
+
     public String buscaElemento(int posicao){
         if (!(posicao >= 0 && posicao < tamanho)){
             throw new IllegalArgumentException("Posição inválida!"); //argumentos inválidos
@@ -47,8 +72,6 @@ public class Vetor {
         }
         return -1;
     }
-
-
 
     public int tamanhoVetor(){
         return this.tamanho;
