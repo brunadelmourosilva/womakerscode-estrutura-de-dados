@@ -1,6 +1,7 @@
 package com.bruna.estruturadados.vetor;
 
 import java.lang.reflect.Array;
+import java.util.List;
 
 //classe genérica
 public class ListaGenerica<T> { //class type
@@ -87,6 +88,14 @@ public class ListaGenerica<T> { //class type
             }
         }
         return -1;
+    }
+
+    //exercício 1
+    public boolean contem(T elemento){
+        if(buscaElemento(elemento) > -1)
+            return true;
+        else
+            return false;
     }
 
 
