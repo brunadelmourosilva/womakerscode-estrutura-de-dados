@@ -4,16 +4,18 @@ import com.bruna.estruturadados.vetor.ListaGenerica;
 import com.bruna.estruturadados.vetor.testes.Contato;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class Exercicio06 {
+public class Exercicio07 extends Exercicio06{
     private static final Scanner SC = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
 
         //vetor com capacidade para 20 contatos
-        ListaGenerica<Contato> contatos = new ListaGenerica<>(20);
+        List<Contato> contatos = new ArrayList<>(20);
 
         //criar e adicionar X contatos
         criarListaContatos(5, contatos);
@@ -22,28 +24,28 @@ public class Exercicio06 {
         //opções
         int op;
         do{
-            Exercicio06.tempoDeEspera();
+            Exercicio07.tempoDeEspera();
             op = exibeOpcoes();
             switch (op){
-                case 1: Exercicio06.adicionarContatoFinal(contatos);
+                case 1: Exercicio07.adicionarContatoFinal(contatos);
                     break;
-                case 2: Exercicio06.adicionarContatoPosicaoEspecifica(contatos);
+                case 2: Exercicio07.adicionarContatoPosicaoEspecifica(contatos);
                     break;
-                case 3: Exercicio06.obtemContatoPosicao(contatos);
+                case 3: Exercicio07.obtemContatoPosicao(contatos);
                     break;
-                case 4: Exercicio06.obtemContato(contatos);
+                case 4: Exercicio07.obtemContato(contatos);
                     break;
-                case 5: Exercicio06.pesquisarUltimoIndice(contatos);
+                case 5: Exercicio07.pesquisarUltimoIndice(contatos);
                     break;
-                case 6: Exercicio06.contatoExiste(contatos);
+                case 6: Exercicio07.contatoExiste(contatos);
                     break;
-                case 7: Exercicio06.excluirPorPosicao(contatos);
+                case 7: Exercicio07.excluirPorPosicao(contatos);
                     break;
-                case 8: Exercicio06.imprimeTamanhoVetor(contatos);
+                case 8: Exercicio07.imprimeTamanhoVetor(contatos);
                     break;
-                case 9: Exercicio06.limparVetor(contatos);
+                case 9: Exercicio07.limparVetor(contatos);
                     break;
-                case 10: Exercicio06.imprimirVetor(contatos);
+                case 10: Exercicio07.imprimirVetor(contatos);
                     break;
                 case 0:
                     System.out.println("Volte sempre!");
@@ -55,23 +57,23 @@ public class Exercicio06 {
 
     }
 
-    private static void adicionarContatoFinal(ListaGenerica<Contato> contatos){
+    private static void adicionarContatoFinal(List<Contato> contatos){
 
         SC.nextLine();
-        String[] infos = Exercicio06.lerInformacoes();
+        String[] infos = Exercicio07.lerInformacoes();
 
         Contato contato = new Contato(infos[0], infos[1], infos[2]); //nome,telefone e e-mail
 
-        contatos.adicionaElemento(contato);
+        contatos.add(contato);
 
         System.out.println("Contato adicionado com sucesso!");
         System.out.println(contato);
     }
 
-    private static void adicionarContatoPosicaoEspecifica(ListaGenerica<Contato> contatos){
+    private static void adicionarContatoPosicaoEspecifica(List<Contato> contatos){
 
         SC.nextLine();
-        String[] infos = Exercicio06.lerInformacoes();
+        String[] infos = Exercicio07.lerInformacoes();
 
         Contato contato = new Contato(infos[0], infos[1], infos[2]); //nome,telefone e e-mail
 
@@ -79,7 +81,7 @@ public class Exercicio06 {
         int pos = SC.nextInt();
 
         try {
-            contatos.adicionaElemento(pos, contato);
+            contatos.add(pos, contato);
 
             System.out.println("Contato adicionado com sucesso!");
             System.out.println(contato);
@@ -89,29 +91,14 @@ public class Exercicio06 {
         }
     }
 
-    protected static String[] lerInformacoes(){
-        String[] infos = new String[3];
-
-        System.out.print("Digite o nome: ");
-        infos[0] = SC.nextLine();
-
-        System.out.print("Digite o telefone: ");
-        infos[1] = SC.nextLine();
-
-        System.out.print("Digite o email: ");
-        infos[2] = SC.nextLine();
-
-        return infos;
-    }
-
-    private static void obtemContatoPosicao(ListaGenerica<Contato> contatos){
+    private static void obtemContatoPosicao(List<Contato> contatos){
 
         System.out.print("Entre com a posição a ser pesquisada: ");
         int pos = SC.nextInt();
 
         try {
 
-            Contato contato = (Contato) contatos.buscaElemento(pos);
+            Contato contato = (Contato) contatos.get(pos);
 
             System.out.println("Dados do contato existente:");
             System.out.println(contato);
@@ -121,20 +108,20 @@ public class Exercicio06 {
         }
     }
 
-    private static void obtemContato(ListaGenerica<Contato> contatos){
+    private static void obtemContato(List<Contato> contatos){
 
         System.out.print("Entre com a posição a ser pesquisada: ");
         int pos = SC.nextInt();
 
         try {
 
-            Contato contato = (Contato) contatos.buscaElemento(pos);
+            Contato contato = (Contato) contatos.get(pos);
 
             System.out.println("Dados do contato existente:");
             System.out.println(contato);
 
             System.out.println("Pesquisa do contato encontrado:");
-            pos = contatos.buscaElemento(contato);
+            pos = contatos.indexOf(contato);
 
             System.out.println("Contato encontrado na posição " + pos);
 
@@ -143,20 +130,20 @@ public class Exercicio06 {
         }
     }
 
-    private static void pesquisarUltimoIndice(ListaGenerica<Contato> contatos){
+    private static void pesquisarUltimoIndice(List<Contato> contatos){
 
         System.out.print("Entre com a posição a ser pesquisada: ");
         int pos = SC.nextInt();
 
         try {
 
-            Contato contato = (Contato) contatos.buscaElemento(pos);
+            Contato contato = (Contato) contatos.get(pos);
 
             System.out.println("Dados do contato existente:");
             System.out.println(contato);
 
             System.out.println("Pesquisa do último índice do contato encontrado:");
-            pos = contatos.ultimoIndice(contato);
+            pos = contatos.lastIndexOf(contato);
 
             System.out.println("Contato encontrado na posição " + pos);
 
@@ -165,16 +152,16 @@ public class Exercicio06 {
         }
     }
 
-    private static void contatoExiste(ListaGenerica<Contato> contatos){
+    private static void contatoExiste(List<Contato> contatos){
 
         System.out.print("Entre com a posição a ser pesquisada: ");
         int pos = SC.nextInt();
 
         try {
 
-            Contato contato = (Contato) contatos.buscaElemento(pos);
+            Contato contato = (Contato) contatos.get(pos);
 
-            boolean existe = contatos.contem(contato);
+            boolean existe = contatos.contains(contato);
 
             if (existe){
                 System.out.println("Dados do contato existente:");
@@ -188,7 +175,7 @@ public class Exercicio06 {
         }
     }
 
-    private static void excluirPorPosicao(ListaGenerica<Contato> contatos){
+    private static void excluirPorPosicao(List<Contato> contatos){
 
         System.out.print("Entre com a posição a ser pesquisada: ");
         int pos = SC.nextInt();
@@ -196,7 +183,7 @@ public class Exercicio06 {
         try {
 
             System.out.println("Dados do contato a serem excluídos: ");
-            Contato contato = (Contato) contatos.buscaElemento(pos);
+            Contato contato = (Contato) contatos.get(pos);
 
             System.out.println(contato);
             System.out.println("-------------------------------------");
@@ -208,27 +195,26 @@ public class Exercicio06 {
         }
     }
 
-    private static void imprimeTamanhoVetor(ListaGenerica<Contato> contatos){
+    private static void imprimeTamanhoVetor(List<Contato> contatos){
 
-        System.out.println("O tamanho do vetor é de: " + contatos.tamanhoVetor() + " posições");
+        System.out.println("O tamanho do vetor é de: " + contatos.size() + " posições");
     }
 
-    private static void limparVetor(ListaGenerica<Contato> contatos) throws InterruptedException {
+    private static void limparVetor(List<Contato> contatos) throws InterruptedException {
 
         System.out.println("Tem certeza que deseja excluir todos os contatos da lista? [1] - Sim | [2] - Não");
         int opcao;
 
         do {
-            SC.nextLine();
             opcao = SC.nextInt();
             switch (opcao) {
                 case 1:
-                    contatos.limpar();
+                    contatos.clear();
                     System.out.println("Todos os contatos do vetor foram removidos");
                     break;
                 case 2:
                     System.out.println("Os contatos não foram excluídos. Voltando ao menu inicial.");
-                    Exercicio06.tempoDeEspera();
+                    Exercicio07.tempoDeEspera();
                     break;
                 default:
                     System.out.print("Opção Incorreta!" + "\n" + "Digite novamente: ");
@@ -239,12 +225,12 @@ public class Exercicio06 {
 
     }
 
-    private static void imprimirVetor(ListaGenerica<Contato> contatos){
+    private static void imprimirVetor(List<Contato> contatos){
 
         System.out.println(contatos);
     }
 
-    protected static void criarListaContatos(int qtd, ListaGenerica<Contato> contatos){
+    public static void criarListaContatos(int qtd, List<Contato> contatos){
 
         Contato contato;
         for (int i = 0; i < qtd; i++) {
@@ -254,38 +240,7 @@ public class Exercicio06 {
             contato.setTelefone("1111111" + i);
             contato.setEmail("contato" + i + "@email.com");
 
-            contatos.adicionaElemento(contato);
+            contatos.add(contato);
         }
-    }
-
-    protected static void tempoDeEspera() throws InterruptedException {
-
-        for (int i = 0; i < 3; i++) {
-            Thread.sleep(1000);
-            System.out.print(".");
-        }
-        System.out.println();
-    }
-
-    //plugin para limpar console do IntelliJ: grep console
-    protected static int exibeOpcoes(){
-        System.out.println("--------------------------------------");
-        System.out.print(
-                "1: Adiciona contato no final do vetor\n" +
-                        "2: Adiciona contato em uma posição específica\n" +
-                        "3: Obtém contato de uma posição específica\n" +
-                        "4: Consulta contato\n" +
-                        "5: Consulta último índide do contato\n" +
-                        "6: Verifica se contato existe\n" +
-                        "7: Excluir contato por posição\n" +
-                        "8: Verifica tamanho do vetor\n"+
-                        "9: Excluir todos os contatos do vetor\n" +
-                        "10: Imprime vetor\n" +
-                        "0: Sair\n");
-
-        System.out.println("--------------------------------------");
-        System.out.print("Escolha uma opção: ");
-        int op = SC.nextInt();
-        return op;
     }
 }
