@@ -1,10 +1,10 @@
 package com.bruna.estruturadados.vetor.exercicios;
 
 import com.bruna.estruturadados.vetor.ListaGenerica;
-import jdk.swing.interop.SwingInterOpUtils;
 
-import java.util.ArrayList;
-import java.util.List;
+/*
+ * Melhore a classe Lista e implemente o método ultimoIndice, semelhante ao método lastIndexOf da classe ArrayList.
+ */
 
 public class Exercicio02 {
 

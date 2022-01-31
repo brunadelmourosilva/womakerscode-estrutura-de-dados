@@ -2,7 +2,10 @@ package com.bruna.estruturadados.vetor.exercicios;
 
 import com.bruna.estruturadados.vetor.ListaGenerica;
 
-import java.util.List;
+/*
+ * Melhore a classe Lista e implemente o método limpar, onde todos os elementos da lista são removidos.
+ * Esse método é semelhante ao método clear da classe ArrayList.
+ */
 
 public class Exercicio05 {
 

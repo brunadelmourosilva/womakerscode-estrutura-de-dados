@@ -1,12 +1,19 @@
 package com.bruna.estruturadados.vetor.exercicios;
 
-import com.bruna.estruturadados.vetor.ListaGenerica;
 import com.bruna.estruturadados.vetor.testes.Contato;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+/*
+ * Utilize a classe ArrayList e desenvolva os seguintes items:
+ *
+ * 1. Crie uma lista utilizando a classe ArrayList da API do Java;
+ * 2. Passe todos os contatos do vetor para o ArrayList;
+ * 3. Crie um exemplo para utilizar cada método da classe ArrayList
+ */
 
 public class Exercicio07 extends Exercicio06{
     private static final Scanner SC = new Scanner(System.in);

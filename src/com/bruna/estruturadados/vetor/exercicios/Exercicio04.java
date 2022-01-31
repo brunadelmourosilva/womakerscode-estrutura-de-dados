@@ -2,8 +2,11 @@ package com.bruna.estruturadados.vetor.exercicios;
 
 import com.bruna.estruturadados.vetor.ListaGenerica;
 
-import java.util.ArrayList;
-import java.util.List;
+/*
+ * Melhore a classe Lista e implemente o método obtem(int posicao),onde sera possível obter o elemento dado uma
+ * posição do vetor.
+ * Esse método é semelhante ao método get(int posicao) da classe ArrayList.
+ */
 
 public class Exercicio04 {
 

@@ -2,8 +2,9 @@ package com.bruna.estruturadados.vetor.exercicios;
 
 import com.bruna.estruturadados.vetor.ListaGenerica;
 
-import java.util.ArrayList;
-import java.util.List;
+/*
+ * Melhore a classe Lista e implemente o método contém, semelhando ao método contains da classe ArrayList.
+ */
 
 public class Exercicio01 {
 
