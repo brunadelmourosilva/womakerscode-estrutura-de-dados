@@ -5,8 +5,8 @@ package com.bruna.estruturadados.base;
 
 public class EstruturaEstatica<T> {
 
-    private T[] elementos; //tipo dinâmico
-    private int tamanho;
+    protected T[] elementos; //tipo dinâmico
+    protected int tamanho;
 
     public EstruturaEstatica(int capacidade) {
         this.elementos = (T[]) new Object[capacidade]; //livro: java efetivo
@@ -50,7 +50,7 @@ public class EstruturaEstatica<T> {
         return false;
     }
 
-    private void aumentaCapacidade(){
+    protected void aumentaCapacidade(){
         if(this.tamanho == this.elementos.length){
             T[] novoVetor = (T[]) new Object[this.elementos.length * 2]; //dobrando a capaciadade
 
