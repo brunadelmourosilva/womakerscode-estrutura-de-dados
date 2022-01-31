@@ -161,4 +161,12 @@ public class ListaGenerica<T> { //class type
         return (T) this.buscaElemento(posicao);
     }
 
+    //exercicio 5
+    public void limpar(){
+        for (int i = 0; i < this.tamanho; i++) {
+            this.remove(this.elementos[i]);
+        }
+        this.tamanho = 0;
+    }
+
 }
