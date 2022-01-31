@@ -90,15 +90,6 @@ public class ListaGenerica<T> { //class type
         return -1;
     }
 
-    //exercício 1
-    public boolean contem(T elemento){
-        if(buscaElemento(elemento) > -1)
-            return true;
-        else
-            return false;
-    }
-
-
     // A C D D -> posição a ser removida é 1 (B)
     // 0 1 2 3 -> tamanho é 4
     // vetor[1] = vetor[2]
@@ -138,4 +129,23 @@ public class ListaGenerica<T> { //class type
 
         return string.toString();
     }
+
+    //exercício 1
+    public boolean contem(T elemento){
+        if(buscaElemento(elemento) > -1)
+            return true;
+        else
+            return false;
+    }
+
+    //exercicio 2
+    public int ultimoIndice(T elemento){
+        for (int i = this.tamanho-1; i >= 0; i--) {
+            if(this.elementos[i].equals(elemento)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
 }
