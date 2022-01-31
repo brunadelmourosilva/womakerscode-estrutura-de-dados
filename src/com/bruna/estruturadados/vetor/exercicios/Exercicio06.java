@@ -2,16 +2,14 @@ package com.bruna.estruturadados.vetor.exercicios;
 
 import com.bruna.estruturadados.vetor.ListaGenerica;
 import com.bruna.estruturadados.vetor.testes.Contato;
-import jdk.swing.interop.SwingInterOpUtils;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Exercicio06 {
     private static final Scanner SC = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
 
         //vetor com capacidade para 20 contatos
@@ -24,27 +22,28 @@ public class Exercicio06 {
         //opções
         int op;
         do{
+            Exercicio06.tempoDeEspera();
             op = exibeOpcoes();
             switch (op){
-                case 1: adicionarContatoFinal(contatos);
+                case 1: Exercicio06.adicionarContatoFinal(contatos);
                     break;
-                case 2: adicionarContatoPosicaoEspecifica(contatos);
+                case 2: Exercicio06.adicionarContatoPosicaoEspecifica(contatos);
                     break;
-                case 3: obtemContatoPosicao(contatos);
+                case 3: Exercicio06.obtemContatoPosicao(contatos);
                     break;
-                case 4: obtemContato(contatos);
+                case 4: Exercicio06.obtemContato(contatos);
                     break;
-                case 5: pesquisarUltimoIndice(contatos);
+                case 5: Exercicio06.pesquisarUltimoIndice(contatos);
                     break;
-                case 6: contatoExiste(contatos);
+                case 6: Exercicio06.contatoExiste(contatos);
                     break;
-                case 7: excluirPorPosicao(contatos);
+                case 7: Exercicio06.excluirPorPosicao(contatos);
                     break;
-                case 8: imprimeTamanhoVetor(contatos);
+                case 8: Exercicio06.imprimeTamanhoVetor(contatos);
                     break;
-                case 9: limparVetor(contatos);
+                case 9: Exercicio06.limparVetor(contatos);
                     break;
-                case 10: imprimirVetor(contatos);
+                case 10: Exercicio06.imprimirVetor(contatos);
                     break;
                 case 0:
                     System.out.println("Volte sempre!");
@@ -59,14 +58,9 @@ public class Exercicio06 {
     private static void adicionarContatoFinal(ListaGenerica<Contato> contatos){
 
         SC.nextLine();
-        System.out.print("Digite o nome: ");
-        String nome = SC.nextLine();
-        System.out.print("Digite o telefone: ");
-        String telefone = SC.nextLine();
-        System.out.print("Digite o email: ");
-        String email = SC.nextLine();
+        String[] infos = Exercicio06.lerInformacoes();
 
-        Contato contato = new Contato(nome, telefone, email);
+        Contato contato = new Contato(infos[0], infos[1], infos[2]); //nome,telefone e e-mail
 
         contatos.adicionaElemento(contato);
 
@@ -77,17 +71,12 @@ public class Exercicio06 {
     private static void adicionarContatoPosicaoEspecifica(ListaGenerica<Contato> contatos){
 
         SC.nextLine();
-        System.out.print("Digite o nome: ");
-        String nome = SC.nextLine();
-        System.out.print("Digite o telefone: ");
-        String telefone = SC.nextLine();
-        System.out.print("Digite o email: ");
-        String email = SC.nextLine();
+        String[] infos = Exercicio06.lerInformacoes();
 
-        Contato contato = new Contato(nome, telefone, email);
+        Contato contato = new Contato(infos[0], infos[1], infos[2]); //nome,telefone e e-mail
 
         System.out.print("Entre com a posição a adicionar o contato: ");
-        int pos = SC.nextInt(); //validar entrada
+        int pos = SC.nextInt();
 
         try {
             contatos.adicionaElemento(pos, contato);
@@ -98,6 +87,21 @@ public class Exercicio06 {
         } catch (Exception e){
             System.out.println("Posição inválida! Contato não adicionado.");
         }
+    }
+
+    public static String[] lerInformacoes(){
+        String[] infos = new String[3];
+
+        System.out.print("Digite o nome: ");
+        infos[0] = SC.nextLine();
+
+        System.out.print("Digite o telefone: ");
+        infos[1] = SC.nextLine();
+
+        System.out.print("Digite o email: ");
+        infos[2] = SC.nextLine();
+
+        return infos;
     }
 
     private static void obtemContatoPosicao(ListaGenerica<Contato> contatos){
@@ -206,13 +210,33 @@ public class Exercicio06 {
 
     private static void imprimeTamanhoVetor(ListaGenerica<Contato> contatos){
 
-        System.out.println("O tamanho do vetor é de: " + contatos.tamanhoVetor() + "posições");
+        System.out.println("O tamanho do vetor é de: " + contatos.tamanhoVetor() + " posições");
     }
 
-    private static void limparVetor(ListaGenerica<Contato> contatos){
+    private static void limparVetor(ListaGenerica<Contato> contatos) throws InterruptedException {
 
-        contatos.limpar();
-        System.out.println("Todos os contatos do vetor foram removidos");
+        System.out.println("Tem certeza que deseja excluir todos os contatos da lista? [1] - Sim | [2] - Não");
+        int opcao;
+
+        do {
+            SC.nextLine();
+            opcao = SC.nextInt();
+            switch (opcao) {
+                case 1:
+                    contatos.limpar();
+                    System.out.println("Todos os contatos do vetor foram removidos");
+                    break;
+                case 2:
+                    System.out.println("Os contatos não foram excluídos. Voltando ao menu inicial.");
+                    Exercicio06.tempoDeEspera();
+                    break;
+                default:
+                    System.out.print("Opção Incorreta!" + "\n" + "Digite novamente: ");
+                    opcao = SC.nextInt();
+                    break;
+            }
+        } while (!(opcao == 1 || opcao == 2));
+
     }
 
     private static void imprimirVetor(ListaGenerica<Contato> contatos){
@@ -234,6 +258,16 @@ public class Exercicio06 {
         }
     }
 
+    public static void tempoDeEspera() throws InterruptedException {
+
+        for (int i = 0; i < 3; i++) {
+            Thread.sleep(1000);
+            System.out.print(".");
+        }
+        System.out.println();
+    }
+
+    //plugin para limpar console do IntelliJ: grep console
     public static int exibeOpcoes(){
         System.out.println("--------------------------------------");
         System.out.print(
