@@ -19,4 +19,11 @@ public class Pilha<T> extends EstruturaEstatica<T> {
         super.adicionaElemento(elemento);
     }
 
+    public T verificaTopo(){
+        if(this.estaVazia())
+            return null;
+
+        return this.elementos[tamanho-1];
+    }
+
 }
