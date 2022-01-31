@@ -156,4 +156,9 @@ public class ListaGenerica<T> { //class type
             this.remove(posicao);
     }
 
+    //exercicio 4
+    public T obtem(int posicao){
+        return (T) this.buscaElemento(posicao);
+    }
+
 }
