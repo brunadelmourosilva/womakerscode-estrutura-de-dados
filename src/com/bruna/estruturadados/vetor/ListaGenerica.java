@@ -132,7 +132,7 @@ public class ListaGenerica<T> { //class type
 
     //exercício 1
     public boolean contem(T elemento){
-        if(buscaElemento(elemento) > -1)
+        if(this.buscaElemento(elemento) > -1)
             return true;
         else
             return false;
@@ -146,6 +146,14 @@ public class ListaGenerica<T> { //class type
             }
         }
         return -1;
+    }
+
+    //exercicio 3
+    public void remove(T elemento){
+        int posicao = this.buscaElemento(elemento);
+
+        if(posicao > -1)
+            this.remove(posicao);
     }
 
 }
