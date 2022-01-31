@@ -17,6 +17,10 @@ public class EstruturaEstatica<T> {
         this(10);
     }
 
+    public boolean estaVazia(){
+        return this.tamanho == 0;
+    }
+
 
     protected boolean adicionaElemento(T elemento){
         this.aumentaCapacidade();
