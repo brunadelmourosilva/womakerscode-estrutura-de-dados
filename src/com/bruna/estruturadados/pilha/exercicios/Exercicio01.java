@@ -22,7 +22,7 @@ public class Exercicio01 {
         Pilha<Integer> numeros = new Pilha<>(10);
         Scanner sc = new Scanner(System.in);
 
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.print("Número: ");
             Integer num = sc.nextInt();
 
