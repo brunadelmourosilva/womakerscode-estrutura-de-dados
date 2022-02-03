@@ -16,12 +16,16 @@ public class Fila<T> extends EstruturaEstatica<T> {
 
 
     public void enfileira(T elemento){
-        super.adicionaElemento(elemento);
+        this.adicionaElemento(elemento);
     }
 
 
     public T verificaTopo(){
-        return null;
+        if(this.estaVazia()){
+            return null;
+        }
+
+        return this.elementos[0];
     }
 
 
