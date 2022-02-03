@@ -16,7 +16,7 @@ public class Fila<T> extends EstruturaEstatica<T> {
 
 
     public void enfileira(T elemento){
-        this.adicionaElemento(elemento);
+        super.adicionaElemento(elemento);
     }
 
 
@@ -30,6 +30,16 @@ public class Fila<T> extends EstruturaEstatica<T> {
 
 
     public T desenfileira(){
-        return null;
+        final int POSICAO = 0;
+
+        T elementoRemovido = this.elementos[POSICAO];
+
+        if(this.estaVazia()){
+            return null;
+        }
+
+        this.remove(POSICAO);
+
+        return elementoRemovido;
     }
 }
