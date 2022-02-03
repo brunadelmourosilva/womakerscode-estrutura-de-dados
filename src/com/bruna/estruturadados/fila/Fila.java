@@ -14,12 +14,12 @@ public class Fila<T> extends EstruturaEstatica<T> {
         super(); //construtor EstruturaEstatica
     }
 
-
+    //enqueue
     public void enfileira(T elemento){
         super.adicionaElemento(elemento);
     }
 
-
+    //peek
     public T verificaTopo(){
         if(this.estaVazia()){
             return null;
@@ -28,7 +28,7 @@ public class Fila<T> extends EstruturaEstatica<T> {
         return this.elementos[0];
     }
 
-
+    //dequeue
     public T desenfileira(){
         final int POSICAO = 0;
 
