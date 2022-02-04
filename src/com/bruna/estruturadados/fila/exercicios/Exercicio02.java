@@ -10,6 +10,8 @@ package com.bruna.estruturadados.fila.exercicios;
  * - Não havendo prioridades, as pessoas com senha normal podem ser atendidas.
  * */
 
+import com.bruna.estruturadados.fila.Fila;
+
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
@@ -19,43 +21,60 @@ public class Exercicio02 {
 
     public static void main(String[] args) {
 
-        //comparar o primeiro caracter - 1 ou 2
-        //atender de acordo com esse critério
+        final int MAX = 3;
 
-        //CONTINUAR EXERCICIO E RESOLVER PROBLEMA DE COMPILAÇÃO
-//        Queue<Pessoa> filaSenhas = new PriorityQueue(
-//                new Comparator() {
-//
-//                    @Override
-//                    public int compare(Pessoa o1, Pessoa o2) {
-//                        return Integer.valueOf(Integer.parseInt(o1.getPrioridade()))
-//                                .compareTo(Integer.parseInt(o2.getPrioridade()));
-//                    }
-//                }
-//        );
-//
-//        //SENHA: 1SP - senha prioritária
-//        //SENHA: 2NP - senha não prioritária
-//
-//        filaSenhas.add(new Pessoa("Bruna", "1SP1234"));
-//        filaSenhas.add(new Pessoa("Alex", "1SP1200"));
-//        filaSenhas.add(new Pessoa("Isabela", "2NP1345"));
-//        filaSenhas.add(new Pessoa("Vitória", "1SP1234"));
-//        filaSenhas.add(new Pessoa("Mari", "2NP1234"));
-//        filaSenhas.add(new Pessoa("Hellen", "2NP15675"));
-//        filaSenhas.add(new Pessoa("Amanda", "2NP8987"));
-//
-//
-//        int max = 3;
-//        while (!filaSenhas.isEmpty()){
-//            Pessoa pessoaAtendida = filaSenhas.poll();
-//
-//            System.out.println("Pessoa prioritária atendida: " + pessoaAtendida.getNome());
-//            max--;
-//
-//            if(max == 0){
-//                System.out.println("Pessoa não prioritária atendida: " + pessoaAtendida.getNome());
-//            }
-//        }
+        //fila normal
+        Fila<String> senhaNormal = new Fila<>();
+        //fila de prioridade
+        Fila<String> senhaPrioritaria = new Fila<>();
+
+        senhaPrioritaria.enfileira("Bruna");
+        senhaPrioritaria.enfileira("Alex");
+        senhaPrioritaria.enfileira("Vitória");
+
+        senhaNormal.enfileira("Isabela");
+        senhaNormal.enfileira("Mari");
+        senhaNormal.enfileira("Hellen");
+        senhaNormal.enfileira("Amanda");
+
+        senhaPrioritaria.enfileira("Raquel");
+        senhaPrioritaria.enfileira("Marcir");
+        senhaPrioritaria.enfileira("Zé");
+
+        senhaNormal.enfileira("Gi");
+        senhaNormal.enfileira("Sara");
+        senhaNormal.enfileira("Laura");
+
+
+
+        while (!senhaNormal.estaVazia() || !senhaPrioritaria.estaVazia()) {
+            int cont = 0;
+            //pessoa prioritária a ser atentida
+            while (!senhaPrioritaria.estaVazia() && cont < MAX) {
+                String pessoaAtendida = senhaPrioritaria.desenfileira();
+                System.out.println("PESSOA PRIORITÁRIA");
+                System.out.println(pessoaAtendida + " foi atendido(a).");
+                System.out.println("----------------------------------");
+                cont++;
+            }
+
+            //uma pessoa da fila normal a ser atendida
+            if(!senhaNormal.estaVazia()){
+                String pessoaAtendida = senhaNormal.desenfileira();
+                System.out.println("PESSOA NORMAL");
+                System.out.println(pessoaAtendida + " foi atendido(a).");
+                System.out.println("----------------------------------");
+            }
+
+            //se a fila prioritária está vazia, todos da fila normal serão atendidos
+            if(senhaPrioritaria.estaVazia()){
+                while (!senhaNormal.estaVazia()){
+                    String pessoaAtendida = senhaNormal.desenfileira();
+                    System.out.println("PESSOA NORMAL");
+                    System.out.println(pessoaAtendida + " foi atendido(a).");
+                    System.out.println("----------------------------------");
+                }
+            }
+        }
     }
 }

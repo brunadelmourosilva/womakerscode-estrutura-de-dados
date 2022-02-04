@@ -1,7 +1,7 @@
 package com.bruna.estruturadados.fila.exercicios;
 
 /*
- * Usando  a estrutura de dados Fila, crie uma fila de documentosque precisam
+ * Usando  a estrutura de dados Fila, crie uma fila de documentos que precisam
  * ser impressos. Cada documento é composto de um nome e quantidade de folhas
  * a serem impressas. O programa deve:
  * - Enfileirar os documentos;
