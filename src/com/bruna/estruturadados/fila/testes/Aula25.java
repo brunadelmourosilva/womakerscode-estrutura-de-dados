@@ -22,12 +22,11 @@ public class Aula25 {
 
         //passando função de comparação ao invés de utilizar o compareTo na classe
         //classe anônima
-        //REVISAR
         Queue<Paciente> priorityQueue = new PriorityQueue<>(
                 new Comparator<Paciente>() {
                     @Override
-                    public int compare(Paciente p1, Paciente p2) {
-                        return Integer.valueOf(p1.getPrioridade()).compareTo(p2.getPrioridade());
+                    public int compare(Paciente o1, Paciente o2) {
+                        return Integer.valueOf(o1.getPrioridade()).compareTo(o2.getPrioridade());
                     }
                 }
         );
