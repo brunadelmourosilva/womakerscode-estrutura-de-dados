@@ -19,6 +19,9 @@ import java.util.Queue;
 
 public class Exercicio02 {
 
+    public static final String PESSOA_NORMAL = "NORMAL";
+    public static final String PESSOA_PRIORITARIA = "PRIORITÁRIA";
+
     public static void main(String[] args) {
 
         final int MAX = 3;
@@ -51,30 +54,38 @@ public class Exercicio02 {
             int cont = 0;
             //pessoa prioritária a ser atentida
             while (!senhaPrioritaria.estaVazia() && cont < MAX) {
-                String pessoaAtendida = senhaPrioritaria.desenfileira();
-                System.out.println("PESSOA PRIORITÁRIA");
-                System.out.println(pessoaAtendida + " foi atendido(a).");
-                System.out.println("----------------------------------");
+                atendimento(senhaPrioritaria, PESSOA_PRIORITARIA);
+
                 cont++;
             }
 
             //uma pessoa da fila normal a ser atendida
             if(!senhaNormal.estaVazia()){
-                String pessoaAtendida = senhaNormal.desenfileira();
-                System.out.println("PESSOA NORMAL");
-                System.out.println(pessoaAtendida + " foi atendido(a).");
-                System.out.println("----------------------------------");
+                atendimento(senhaNormal, PESSOA_NORMAL);
             }
 
             //se a fila prioritária está vazia, todos da fila normal serão atendidos
             if(senhaPrioritaria.estaVazia()){
                 while (!senhaNormal.estaVazia()){
-                    String pessoaAtendida = senhaNormal.desenfileira();
-                    System.out.println("PESSOA NORMAL");
-                    System.out.println(pessoaAtendida + " foi atendido(a).");
-                    System.out.println("----------------------------------");
+                    atendimento(senhaNormal, PESSOA_NORMAL);
+
                 }
             }
+        }
+
+    }
+
+    public static void atendimento(Fila<String> tipoFila, String tipo) {
+        String pessoaAtendida = tipoFila.desenfileira();
+
+        System.out.println("PESSOA " + tipo);
+        System.out.println(pessoaAtendida + " foi atendido(a).");
+        System.out.println("----------------------------------");
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }
