@@ -2,14 +2,14 @@ package com.bruna.estruturadados.fila.exercicios;
 
 public class Pessoa {
     private String nome;
-    private String senha;
+    private int prioridade;
 
     public Pessoa() {
     }
 
-    public Pessoa(String nome, String senha) {
+    public Pessoa(String nome, int prioridade) {
         this.nome = nome;
-        this.senha = senha;
+        this.prioridade = prioridade;
     }
 
     public String getNome() {
@@ -20,11 +20,11 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public String getSenha() {
-        return senha;
+    public int getPrioridade() {
+        return prioridade;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPrioridade(int prioridade) {
+        this.prioridade = prioridade;
     }
 }
