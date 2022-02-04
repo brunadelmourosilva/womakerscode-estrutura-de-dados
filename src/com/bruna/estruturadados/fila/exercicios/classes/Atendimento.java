@@ -1,4 +1,4 @@
-package com.bruna.estruturadados.fila.exercicios;
+package com.bruna.estruturadados.fila.exercicios.classes;
 
 import com.bruna.estruturadados.fila.FilaComPrioridade;
 
@@ -6,9 +6,9 @@ import java.util.PriorityQueue;
 
 public class Atendimento implements Runnable{
 
-    private FilaComPrioridade<Pessoa> pessoas;
+    private PriorityQueue<Pessoa> pessoas;
 
-    public Atendimento(FilaComPrioridade<Pessoa> pessoas) {
+    public Atendimento(PriorityQueue<Pessoa> pessoas) {
         this.pessoas = pessoas;
     }
 
@@ -16,9 +16,9 @@ public class Atendimento implements Runnable{
     public void run() {
 
         //desenfileira os pacientes com 5 segundos
-        while (!pessoas.estaVazia()) {
+        while (!pessoas.isEmpty()) {
             try {
-                System.out.println(pessoas.desenfileira() + " atendida.");
+                System.out.println(pessoas.poll() + " atendida.");
 
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
@@ -26,7 +26,7 @@ public class Atendimento implements Runnable{
             }
         }
 
-        System.out.println("Atendimento concluído.");
+        System.out.println("Atendimento concluído!");
 
     }
 

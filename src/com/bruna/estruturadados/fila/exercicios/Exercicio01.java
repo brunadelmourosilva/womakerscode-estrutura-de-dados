@@ -10,8 +10,7 @@ package com.bruna.estruturadados.fila.exercicios;
  *   a impressão de acordo com o numero de folhas a serem impressas.*/
 
 import com.bruna.estruturadados.fila.Fila;
-
-import java.util.Queue;
+import com.bruna.estruturadados.fila.exercicios.classes.Documento;
 
 public class Exercicio01 {
 

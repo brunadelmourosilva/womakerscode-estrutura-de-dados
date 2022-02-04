@@ -1,4 +1,4 @@
-package com.bruna.estruturadados.fila.exercicios;
+package com.bruna.estruturadados.fila.exercicios.classes;
 
 public class Documento {
 

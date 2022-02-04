@@ -1,16 +1,15 @@
-package com.bruna.estruturadados.fila;
+package com.bruna.estruturadados.fila.exercicios.classes;
 
-public class Paciente implements Comparable<Paciente>{ //implements Comparable<Paciente>
-
+public class Pessoa implements Comparable<Pessoa>{
     private String nome;
     private int prioridade;
 
-    public Paciente(String nome, int prioridade) {
-        this.nome = nome;
-        this.prioridade = prioridade;
+    public Pessoa() {
     }
 
-    public Paciente() {
+    public Pessoa(String nome, int prioridade) {
+        this.nome = nome;
+        this.prioridade = prioridade;
     }
 
     public String getNome() {
@@ -31,19 +30,18 @@ public class Paciente implements Comparable<Paciente>{ //implements Comparable<P
 
 
     @Override
-    public int compareTo(Paciente o) {
-        if (this.prioridade > o.getPrioridade()){
+    public int compareTo(Pessoa o) {
+        if(prioridade > o.prioridade){
             return 1;
-        } else if (this.prioridade < o.getPrioridade()){
+        } else if(prioridade < o.prioridade){
             return -1;
         }
-
         return 0;
     }
 
     @Override
     public String toString() {
-        return "Paciente{" +
+        return "Pessoa{" +
                 "nome='" + nome + '\'' +
                 ", prioridade=" + prioridade +
                 '}';
