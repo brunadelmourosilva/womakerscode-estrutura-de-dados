@@ -10,7 +10,7 @@
 
  - [x] Módulo 3: Filas
 
- 
+ - [ ] Módulo 4: Lista Encadeada _(em andamento)_
 ---
 
 ## :pushpin:	Github Projects
