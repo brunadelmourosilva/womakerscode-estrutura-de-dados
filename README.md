@@ -2,7 +2,7 @@
 
 ---
 
-📚 Módulos
+## 📚 Módulos
 
  - [x] Módulo 1: Vetores, Arrays e Listas
 
@@ -13,6 +13,10 @@
  
 ---
 
-🦋 Curso ofertado pela plataforma _loiane.training_
+## :pushpin:	Github Projects
 
-💻 [Clique aqui para acessar o curso](https://loiane.training/curso/estrutura-de-dados)
+➡️ [Clique aqui](https://github.com/brunadelmourosilva/womakerscode-estrutura-de-dados/projects/1)
+
+---
+
+🦋 Curso ofertado pela plataforma [_loiane.training_](https://loiane.training/curso/estrutura-de-dados)
